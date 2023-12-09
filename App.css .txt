@@ -1,0 +1,76 @@
+/* App.css */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.app {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.kanban-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.options {
+  margin-bottom: 10px;
+}
+
+.options button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.options button.active {
+  background-color: #0056b3;
+}
+
+.card {
+  flex: 0 0 30%;
+  margin: 0 10px 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+}
+
+.card.priority-4 {
+  border-left: 4px solid #dc3545; /* Urgent - Red */
+}
+
+.card.priority-3 {
+  border-left: 4px solid #ffc107; /* High - Yellow */
+}
+
+.card.priority-2 {
+  border-left: 4px solid #28a745; /* Medium - Green */
+}
+
+.card.priority-1 {
+  border-left: 4px solid #007bff; /* Low - Blue */
+}
+
+.card.priority-0 {
+  border-left: 4px solid #6c757d; /* No priority - Gray */
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #555;
+}

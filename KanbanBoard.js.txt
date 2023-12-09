@@ -1,0 +1,53 @@
+// KanbanBoard.js
+import React, { useState, useEffect } from 'react';
+import Card from './Card';
+
+const KanbanBoard = ({ data }) => {
+  const [groupingOption, setGroupingOption] = useState(
+    localStorage.getItem('groupingOption') || 'status'
+  );
+
+  useEffect(() => {
+    localStorage.setItem('groupingOption', groupingOption);
+  }, [groupingOption]);
+
+  const handleGroupingOptionChange = (option) => {
+    setGroupingOption(option);
+  };
+
+  // Implement logic to group and sort data based on the selected option
+  let groupedAndSortedData = [];
+
+  // Render UI based on grouped and sorted data
+  return (
+    <div className="kanban-board">
+      <div className="options">
+        <button
+          className={groupingOption === 'status' ? 'active' : ''}
+          onClick={() => handleGroupingOptionChange('status')}
+        >
+          Group by Status
+        </button>
+        <button
+          className={groupingOption === 'user' ? 'active' : ''}
+          onClick={() => handleGroupingOptionChange('user')}
+        >
+          Group by User
+        </button>
+        <button
+          className={groupingOption === 'priority' ? 'active' : ''}
+          onClick={() => handleGroupingOptionChange('priority')}
+        >
+          Group by Priority
+        </button>
+      </div>
+
+      {/* Render UI based on grouped and sorted data */}
+      {groupedAndSortedData.map((card) => (
+        <Card key={card.id} card={card} />
+      ))}
+    </div>
+  );
+};
+
+export default KanbanBoard;
